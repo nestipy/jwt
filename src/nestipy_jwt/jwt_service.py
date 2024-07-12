@@ -28,7 +28,7 @@ class JwtService(PyJWT):
         return super().encode(
             payload,
             key or self._options.secret,
-            algorithm or self._options.algorithms or "HS256",
+            algorithm or self._options.algorithms[0] if len(self._options.algorithms) > 0 else "HS256",
             headers,
             json_encoder, sort_headers
         )
@@ -49,7 +49,7 @@ class JwtService(PyJWT):
         return super().decode(
             jwt,
             key or self._options.secret,
-            algorithms or ["HS256"],
+            algorithms or self._options.algorithms or ["HS256"],
             options,
             verify,
             detached_payload,
