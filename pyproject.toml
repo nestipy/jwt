@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "nestipy-jwt"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["tsiresymila <tsiresymila@gmail.com>"]
 readme = "README.md"
@@ -9,7 +9,7 @@ packages = [{include = "nestipy_jwt", from = "src"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 pyjwt = "^2.8.0"
-nestipy = "^0.4.10"
+nestipy = "^0.5.3"
 
 
 [build-system]
