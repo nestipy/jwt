@@ -1,16 +1,28 @@
-[tool.poetry]
+[project]
 name = "nestipy-jwt"
-version = "0.1.4"
+version = "0.3.0"
 description = ""
-authors = ["tsiresymila <tsiresymila@gmail.com>"]
+authors = [{ name = "tsiresymila", email = "tsiresymila@gmail.com" }]
+requires-python = ">=3.11,<4"
 readme = "README.md"
-packages = [{include = "nestipy_jwt", from = "src"}]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = ["pyjwt>=2.8.0,<3"]
 
-[tool.poetry.dependencies]
-python = "^3.11"
-pyjwt = "^2.8.0"
+[tool.hatch.build.targets.sdist]
+include = ["src/nestipy_jwt"]
 
+[tool.hatch.build.targets.wheel]
+include = ["src/nestipy_jwt"]
+
+[tool.hatch.build.targets.wheel.sources]
+"src/nestipy_jwt" = "nestipy_jwt"
 
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
